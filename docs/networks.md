@@ -1,0 +1,32 @@
+---
+title: The networks
+order: 2
+---
+
+# The networks
+
+Each address below is what omnishare builds for one page
+(`https://example.com/articles/fuji?lang=fr`, "Le Fuji (l'ascension) & nous !", a picture, the
+hashtags `japon` and `fuji`, the account `lesringostars`). Each was opened on 2026-10-23 in a
+headless Chrome, **signed out**, to see what the network's page receives.
+
+| Network | Address | Seen, signed out |
+|---|---|---|
+| Facebook | `https://www.facebook.com/sharer/sharer.php?u=…` | "You are not logged in"; the address kept in the page's own address (`u`). Facebook takes the title and picture from the page's og:* tags. **Verified** as far as an anonymous visit goes |
+| X | `https://twitter.com/intent/tweet?url=…&text=…&hashtags=japon%2Cfuji&via=…` | twitter.com sends to x.com's sign-in, whose `redirect_after_login` carries `url`, `text`, `hashtags` and `via` intact. **Verified** |
+| Pinterest | `https://pinterest.com/pin/create/button/?url=…&media=…&description=…` | www.pinterest.com's "Pin Builder" sign-in, the three parameters kept. **Verified** |
+| LinkedIn | `https://www.linkedin.com/sharing/share-offsite/?url=…` | the sign-in, whose `session_redirect` carries the address to `shareArticle`. LinkedIn no longer takes a title or summary in the address. **Verified** |
+| Bluesky | `https://bsky.app/intent/compose?text=…` | the app recognises the intent and, signed out, leaves it for its home page (nothing stored). The composer filled after signing in is **not verified** |
+| Mastodon | `https://<instance>/share?text=…` | mastodon.social and piaille.fr answer 302 to their sign-in (a path that does not exist answers 404): the share page is there, behind the sign-in. The composer filled is **not verified** |
+| Threads | `https://www.threads.com/intent/post?text=…&url=…` | the sign-in, whose `next` carries `text` (with the hashtags) and `url` intact (threads.net answers 301 to threads.com). **Verified** |
+| WhatsApp | `https://wa.me/?text=…` | api.whatsapp.com's "Share on WhatsApp" shows "Le Fuji (l'ascension) & nous ! https://example.com/articles/fuji?lang=fr". **Verified** |
+| Telegram | `https://t.me/share/url?url=…&text=…` | "Telegram: Share Web Page" shows the address and the title. **Verified** |
+| Reddit | `https://www.reddit.com/submit?url=…&title=…` | a "prove your humanity" challenge for a headless browser; the address and the title kept. **Verified** to that point |
+| E-mail | `mailto:?subject=…&body=…` | no network: the subject and body decode to the title and the address (a space is `%20`) |
+| Copy | the address | `assets/omnishare.js` in a headless Chrome: the address on the clipboard |
+| Share sheet | the address | `assets/omnishare.js` in a headless Chrome: `navigator.share` given the title and the address |
+
+Addresses that were not chosen: X's newer `x.com/intent/post` (twitter.com's intent answers 301 to
+x.com and keeps every parameter; lesringostars' links used twitter.com before omnishare and are
+unchanged); Facebook's `quote` (ignored by Facebook since 2023); LinkedIn's `shareArticle?mini=true`
+with `title` and `summary` (LinkedIn sends share-offsite there itself and drops them).

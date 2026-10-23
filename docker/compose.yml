@@ -1,0 +1,27 @@
+# omniscient/omnishare's harness:
+#
+#   docker compose run --rm omnishare test      # PHPUnit: every network, the registry, the JSON, plain PHP (BareTest)
+#   docker compose run --rm omnishare bare      # plain PHP: every link of a page, and what PHP loaded
+#   docker compose run --rm js                  # assets/omnishare.js on node's test runner
+#   docker compose down -v                      # the harness's volume gone
+name: omnishare-harness
+
+services:
+  omnishare:
+    build: .
+    image: omniscient/omnishare-harness
+    environment:
+      OMNISHARE_AUTOLOAD: /harness/vendor/autoload.php
+    volumes:
+      - ..:/omnishare
+      - harness:/harness
+
+  js:
+    image: node:22-alpine
+    working_dir: /omnishare
+    command: ["node", "--test", "Tests/js/omnishare.test.cjs"]
+    volumes:
+      - ..:/omnishare:ro
+
+volumes:
+  harness:
