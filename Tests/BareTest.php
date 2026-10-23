@@ -9,7 +9,8 @@ use PHPUnit\Framework\TestCase;
  * omnishare outside any framework: the harness's bare script
  * (docker/harness/bin/bare), in a PHP process of its own with Composer's
  * autoloader alone, shares a page to every network and reports what PHP
- * loaded: omnishare's classes and Composer's, nothing else.
+ * loaded for it, past what the autoloader loads by itself: omnishare's
+ * classes, nothing else - in this harness as in an application's vendor.
  */
 final class BareTest extends TestCase
 {
@@ -21,7 +22,7 @@ final class BareTest extends TestCase
         self::assertSame('https://bsky.app/intent/compose?text=Le%20Fuji%20%28l%27ascension%29%20%26%20nous%20%21%20%23japon%20https%3A%2F%2Fexample.com%2Farticles%2Ffuji', $report['share']['links']['bluesky']['url']);
         self::assertSame('Épingler sur Pinterest', $report['label']);
         self::assertContains(Registry::class, $report['loaded']);
-        self::assertSame([], array_values((array) preg_grep('~^(?!Omnishare\\\\|Composer\\\\Autoload\\\\|ComposerAutoloaderInit)~', $report['loaded'])), 'nothing but omnishare and Composer\'s autoloader');
+        self::assertSame([], array_values((array) preg_grep('~^(?!Omnishare\\\\)~', $report['loaded'])), 'nothing but omnishare');
     }
 
     /** @return array{share: array{links: array<string, array{url: string}>}, label: string, loaded: list<string>} */

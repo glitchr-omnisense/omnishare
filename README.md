@@ -67,6 +67,9 @@ thirteen repositories of thirty lines each. An application adds its own network 
   LinkedIn, Threads and Reddit keep the address (and, for those that take them, the title, picture,
   hashtags and account) through their sign-in page; Mastodon's `/share` exists and asks to sign in
   first; Bluesky's app recognises `/intent/compose` and, signed out, leaves it for its home page.
+- Verified on an application: glitchr's lesringostars builds its articles' Facebook, X, Pinterest
+  and e-mail links with omnishare, under Symfony, under its Laravel twin and in its React screen,
+  with the same markup as before; this package's tests also pass inside its vendor (PHPUnit 9.6).
 - Not verified: what each network's composer shows once signed in (no account was used); the
   e-mail in a mail client other than the browser's handler; Mastodon instances other than
   mastodon.social and piaille.fr.

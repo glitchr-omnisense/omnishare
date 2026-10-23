@@ -49,6 +49,7 @@ final class NetworksTest extends TestCase
         yield 'native' => [new Network\Native(), 'https://lesringostars.example/japon/articles/le-fuji', 'https://lesringostars.example/japon/articles/le-fuji'];
     }
 
+    /** @dataProvider networks (PHPUnit 9, as an application's simple-phpunit runs it) */
     #[DataProvider('networks')]
     public function testEachNetworkIsGivenWhatItTakes(NetworkInterface $network, string $plain, string $everything): void
     {
