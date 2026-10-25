@@ -1,9 +1,9 @@
 ---
-title: Installation and use, in plain PHP
-order: 1
+title: Installation
+order: 10
 ---
 
-# Installation and use, in plain PHP
+## Installation and use, in plain PHP
 
 ```sh
 composer require omniscient/omnishare
@@ -51,7 +51,7 @@ foreach ($share->links as $link) {
   (`translations/<locale>.php`, plain PHP arrays), for an application without its own words. An
   application with a translator imports those files into it, or keeps its own keys.
 
-## A network of one's own
+### A network of one's own
 
 ```php
 use Omnishare\Network\AbstractNetwork;

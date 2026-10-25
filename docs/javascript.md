@@ -1,9 +1,9 @@
 ---
 title: The script
-order: 4
+order: 36
 ---
 
-# The script: share sheet, copy, Mastodon instance
+## The script: share sheet, copy, Mastodon instance
 
 `assets/omnishare.js` (no dependency, ES5, 6 KB with its comments) does what a plain link cannot, only where
 the browser can:

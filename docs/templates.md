@@ -1,9 +1,9 @@
 ---
 title: Templates
-order: 3
+order: 35
 ---
 
-# Templates: Twig, Blade, React - one JSON
+## Templates: Twig, Blade, React - one JSON
 
 `Share::toArray()` is the same array whatever draws it:
 
@@ -26,7 +26,7 @@ order: 3
 `fa-solid` for `envelope`, `link` and `share` - `share-nodes` in Font Awesome 6). `label` is a key
 of omnishare's catalogues; an application may use its own words instead.
 
-## Twig
+### Twig
 
 ```twig
 <ul class="share" aria-label="{{ 'omnishare.title'|trans }}">
@@ -43,7 +43,11 @@ of omnishare's catalogues; an application may use its own words instead.
 ```
 
 `share` is `$share->toArray()` given to the template (a Twig function of the application's, or a
-controller's variable). The same loop in Blade:
+controller's variable).
+
+### Blade
+
+The same loop in Blade, `$share` the array:
 
 ```blade
 <ul class="share" aria-label="{{ __('omnishare.title') }}">
@@ -57,7 +61,7 @@ controller's variable). The same loop in Blade:
 </ul>
 ```
 
-## React
+### React
 
 The screen's props carry the same array (`share: ShareJson`); the share sheet and the copy are
 the component's own state rather than the script's:

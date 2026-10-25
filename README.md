@@ -48,11 +48,16 @@ thirteen repositories of thirty lines each. An application adds its own network 
 
 ## Documentation
 
+The manual, in [docs/](docs/index.md):
+
 - [Installation and use, in plain PHP](docs/installation.md)
+- [Concepts](docs/concepts.md): Shareable, Registry, Share, Link, NetworkInterface, the labels
 - [The networks, and how each address was checked](docs/networks.md)
 - [Templates: Twig, Blade, React - one JSON](docs/templates.md)
 - [The script: share sheet, copy, Mastodon instance](docs/javascript.md)
+- [Errors](docs/errors.md) and [testing](docs/testing.md)
 - [The Docker harness](docs/harness.md)
+- [Verified, and not](docs/verified.md)
 
 ## Verified, and not
 

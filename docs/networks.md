@@ -1,9 +1,41 @@
 ---
 title: The networks
-order: 2
+order: 30
 ---
 
-# The networks
+## The networks
+
+### The addresses built
+
+For `new Shareable('https://example.com/articles/fuji', 'Mount Fuji at dawn', 'The light at 5 am',
+'https://example.com/fuji.jpg', ['#japan', ' travel ', ''], 'example')` - the hashtags trimmed,
+their `#` and the empty one dropped - `Registry::defaults()` builds (run in the harness on
+2026-10-26):
+
+| Network | Address |
+|---|---|
+| `facebook` | `https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fexample.com%2Farticles%2Ffuji` |
+| `x` | `https://twitter.com/intent/tweet?url=https%3A%2F%2Fexample.com%2Farticles%2Ffuji&text=The%20light%20at%205%20am&hashtags=japan%2Ctravel&via=example` |
+| `pinterest` | `https://pinterest.com/pin/create/button/?url=https%3A%2F%2Fexample.com%2Farticles%2Ffuji&media=https%3A%2F%2Fexample.com%2Ffuji.jpg&description=The%20light%20at%205%20am` |
+| `linkedin` | `https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fexample.com%2Farticles%2Ffuji` |
+| `bluesky` | `https://bsky.app/intent/compose?text=The%20light%20at%205%20am%20%23japan%20%23travel%20https%3A%2F%2Fexample.com%2Farticles%2Ffuji` |
+| `mastodon` | `https://mastodon.social/share?text=The%20light%20at%205%20am%20%23japan%20%23travel%20https%3A%2F%2Fexample.com%2Farticles%2Ffuji` |
+| `threads` | `https://www.threads.com/intent/post?text=The%20light%20at%205%20am%20%23japan%20%23travel&url=https%3A%2F%2Fexample.com%2Farticles%2Ffuji` |
+| `whatsapp` | `https://wa.me/?text=The%20light%20at%205%20am%20https%3A%2F%2Fexample.com%2Farticles%2Ffuji` |
+| `telegram` | `https://t.me/share/url?url=https%3A%2F%2Fexample.com%2Farticles%2Ffuji&text=The%20light%20at%205%20am` |
+| `reddit` | `https://www.reddit.com/submit?url=https%3A%2F%2Fexample.com%2Farticles%2Ffuji&title=Mount%20Fuji%20at%20dawn` |
+| `email` | `mailto:?subject=Mount%20Fuji%20at%20dawn&body=The%20light%20at%205%20am%0A%0Ahttps%3A%2F%2Fexample.com%2Farticles%2Ffuji` |
+| `copy` | `https://example.com/articles/fuji` |
+| `native` | `https://example.com/articles/fuji` |
+
+The message is the text when there is one, else the title (Reddit and the e-mail's subject always
+take the title). Bluesky, Mastodon and WhatsApp take one text: the message, then the hashtags as
+`#tag` (not WhatsApp), then the address; Threads takes the message and hashtags as `text` and the
+address apart. Parameters left empty or null are not written. Mastodon goes to the instance given
+to `Registry::defaults($mastodonInstance)`, else to `mastodon.social` with the script's `instance`
+action.
+
+### What each network was seen to do
 
 Each address below is what omnishare builds for one page
 (`https://example.com/articles/fuji?lang=fr`, "Le Fuji (l'ascension) & nous !", a picture, the
@@ -26,7 +58,7 @@ headless Chrome, **signed out**, to see what the network's page receives.
 | Copy | the address | `assets/omnishare.js` in a headless Chrome: the address on the clipboard |
 | Share sheet | the address | `assets/omnishare.js` in a headless Chrome: `navigator.share` given the title and the address |
 
-## Mastodon and Bluesky, in their source (2026-10-24)
+### Mastodon and Bluesky, in their source (2026-10-24)
 
 Their composer cannot be seen without an account; what they do with the address was read in their
 own code instead:
