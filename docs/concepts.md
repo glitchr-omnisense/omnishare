@@ -3,9 +3,9 @@ title: Concepts
 order: 20
 ---
 
-## Concepts
+# Concepts
 
-### Shareable
+## Shareable
 
 `Omnishare\Shareable` (final, readonly) is what is shared: a page, by its canonical address, with
 what the networks show of it.
@@ -27,7 +27,7 @@ The constructor throws `InvalidShareableException` when `url`, or a non-empty `i
 | `message(): string` | the text when there is one (not null, not `''`), else the title |
 | `toArray(): array` | `url`, `title`, `text`, `image`, `hashtags`, `via` |
 
-### Registry
+## Registry
 
 `Omnishare\Registry` holds the networks by name.
 
@@ -41,7 +41,7 @@ The constructor throws `InvalidShareableException` when `url`, or a non-empty `i
 | `names(): list<string>` | in the order they were added |
 | `share(Shareable $shareable, ?array $networks = null): Share` | the links to those networks, in the order given; `null`: every network |
 
-### Share and Link
+## Share and Link
 
 `Omnishare\Share` (final, readonly, `JsonSerializable`) is a `Shareable` and its links, keyed by
 network name in the order asked for: what a template draws.
@@ -73,7 +73,7 @@ network name in the order asked for: what a template draws.
 > false for it, while the script's own markup example gives it `target="_blank"`. A template that
 > follows `newTab` opens it in the same tab when the script is not loaded.
 
-### NetworkInterface and AbstractNetwork
+## NetworkInterface and AbstractNetwork
 
 `Omnishare\NetworkInterface` is a place a page can be shared to. A network builds an address from
 a Shareable and says how it is shown; it calls nothing and holds no credential.
@@ -102,7 +102,7 @@ address whose host is taken (`https://Piaille.fr/@someone` gives `piaille.fr`); 
 answers it, `null` when none was given (the link then goes to `Mastodon::FALLBACK`,
 `mastodon.social`, and the script asks the visitor).
 
-### Labels
+## Labels
 
 `Omnishare\Labels` holds omnishare's own labels, in English and French (`translations/en.php`,
 `translations/fr.php`, plain PHP arrays), for an application without words of its own.

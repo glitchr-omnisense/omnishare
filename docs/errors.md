@@ -3,7 +3,7 @@ title: Errors
 order: 50
 ---
 
-## Errors
+# Errors
 
 Every exception omnishare throws implements `Omnishare\Exception\OmnishareException`
 (a `\Throwable`). There are two, both programming errors to fix rather than conditions to handle:

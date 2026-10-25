@@ -3,9 +3,9 @@ title: The networks
 order: 30
 ---
 
-## The networks
+# The networks
 
-### The addresses built
+## The addresses built
 
 For `new Shareable('https://example.com/articles/fuji', 'Mount Fuji at dawn', 'The light at 5 am',
 'https://example.com/fuji.jpg', ['#japan', ' travel ', ''], 'example')` - the hashtags trimmed,
@@ -35,7 +35,7 @@ address apart. Parameters left empty or null are not written. Mastodon goes to t
 to `Registry::defaults($mastodonInstance)`, else to `mastodon.social` with the script's `instance`
 action.
 
-### What each network was seen to do
+## What each network was seen to do
 
 Each address below is what omnishare builds for one page
 (`https://example.com/articles/fuji?lang=fr`, "Le Fuji (l'ascension) & nous !", a picture, the
@@ -58,7 +58,7 @@ headless Chrome, **signed out**, to see what the network's page receives.
 | Copy | the address | `assets/omnishare.js` in a headless Chrome: the address on the clipboard |
 | Share sheet | the address | `assets/omnishare.js` in a headless Chrome: `navigator.share` given the title and the address |
 
-### Mastodon and Bluesky, in their source (2026-10-24)
+## Mastodon and Bluesky, in their source (2026-10-24)
 
 Their composer cannot be seen without an account; what they do with the address was read in their
 own code instead:

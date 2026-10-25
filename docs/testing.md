@@ -3,7 +3,7 @@ title: Testing
 order: 60
 ---
 
-## Testing
+# Testing
 
 Links are strings built from a `Shareable`: test them as strings, with no browser and no network.
 

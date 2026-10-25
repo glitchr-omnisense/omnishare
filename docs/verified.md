@@ -3,7 +3,7 @@ title: Verified, and not
 order: 90
 ---
 
-## Verified, and not
+# Verified, and not
 
 - **Tests.** `docker compose run --rm omnishare test` in `docker/` (PHP 8.4), on 2026-10-26: 25
   tests, 151 assertions, green - every network's address for one page, with and without text,
