@@ -6,7 +6,7 @@ order: 10
 # Installation and use, in plain PHP
 
 ```sh
-composer require omniscient/omnishare
+composer require omnisense/omnishare
 ```
 
 ```php

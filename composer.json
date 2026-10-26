@@ -1,9 +1,9 @@
 {
-    "name": "omniscient/omnishare",
+    "name": "omnisense/omnishare",
     "type": "library",
     "description": "Omnishare: share links to social networks - a page's address, title, text, picture and hashtags turned into each network's own share page (Facebook, X, Pinterest, LinkedIn, Bluesky, Mastodon, Threads, WhatsApp, Telegram, Reddit), an e-mail, a copied link and the device's share sheet. Plain links: no network script, no cookie, no credential. One JSON for Twig, Blade and React.",
     "keywords": ["share", "share links", "share buttons", "social", "facebook", "x", "twitter", "pinterest", "linkedin", "bluesky", "mastodon", "threads", "whatsapp", "telegram", "reddit", "omnishare"],
-    "homepage": "https://github.com/glitchr-studio/omnishare",
+    "homepage": "https://github.com/glitchr-omnisense/omnishare",
     "license": "MIT",
     "authors": [
         {
@@ -16,6 +16,9 @@
     },
     "require-dev": {
         "phpunit/phpunit": "^11.0"
+    },
+    "replace": {
+        "omniscient/omnishare": "self.version"
     },
     "autoload": {
         "psr-4": {

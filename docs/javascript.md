@@ -24,5 +24,5 @@ Mark the hidden ones `hidden`; the attribute may sit on an ancestor marked `data
 Loaded as a script it starts itself: one click listener on the document (so links added later
 work), and the reveal at `DOMContentLoaded` and at every `load` - libraries that swap pages in
 dispatch `load` again. `Omnishare.reveal(element)` reveals what is under an element added since.
-Required from CommonJS (a bundler, from `vendor/omniscient/omnishare/assets/omnishare.js`) it only
+Required from CommonJS (a bundler, from `vendor/omnisense/omnishare/assets/omnishare.js`) it only
 exports `reveal`, `handle`, `instance`, `onInstance`, `available` and `start`.

@@ -1,4 +1,4 @@
-# omniscient/omnishare's harness:
+# omnisense/omnishare's harness:
 #
 #   docker compose run --rm omnishare test      # PHPUnit: every network, the registry, the JSON, plain PHP (BareTest)
 #   docker compose run --rm omnishare bare      # plain PHP: every link of a page, and what PHP loaded
@@ -9,7 +9,7 @@ name: omnishare-harness
 services:
   omnishare:
     build: .
-    image: omniscient/omnishare-harness
+    image: omnisense/omnishare-harness
     environment:
       OMNISHARE_AUTOLOAD: /harness/vendor/autoload.php
     volumes:

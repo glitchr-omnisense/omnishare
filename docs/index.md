@@ -1,4 +1,4 @@
-# omniscient/omnishare
+# omnisense/omnishare
 
 Share links to social networks: a page's address, title, text, picture and hashtags turned into
 each network's own share page, an e-mail, a copied link and the device's share sheet. The links

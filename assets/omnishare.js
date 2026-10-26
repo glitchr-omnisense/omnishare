@@ -2,7 +2,7 @@
  * omnishare.js - the share actions a plain link cannot do, added where the
  * browser can: the device's share sheet (navigator.share), the page's address
  * copied (the clipboard), the visitor's own Mastodon instance. No dependency,
- * no network script, no cookie, nothing stored. MIT, omniscient/omnishare.
+ * no network script, no cookie, nothing stored. MIT, omnisense/omnishare.
  *
  * The markup (Share::toArray()'s links, any template engine):
  *
