@@ -6,7 +6,10 @@ use Omnishare\Exception\InvalidShareableException;
 use Omnishare\Exception\OmnishareException;
 use Omnishare\Exception\UnknownNetworkException;
 use Omnishare\Labels;
+use Omnishare\Link;
+use Omnishare\Network\CopyLink;
 use Omnishare\Network\Facebook;
+use Omnishare\Network\Mastodon;
 use Omnishare\Network\X;
 use Omnishare\NetworkInterface;
 use Omnishare\Registry;
@@ -38,6 +41,16 @@ final class ShareTest extends TestCase
         ], $json['links']['facebook']);
         self::assertFalse($json['links']['email']['newTab'], 'a mailto: opens the mail client, not a tab');
         self::assertSame(['newTab' => false, 'action' => 'share'], array_intersect_key($json['links']['native'], ['newTab' => 0, 'action' => 0]));
+    }
+
+    /** Mastodon without an instance: a web share page, in a new tab as the script's markup has it, whether the script is loaded or not. */
+    public function testMastodonsLinkWithoutAnInstanceOpensInANewTab(): void
+    {
+        $link = Link::of(new Mastodon(), new Shareable('https://example.com/a', 'Le Fuji'));
+
+        self::assertSame('instance', $link->action);
+        self::assertTrue($link->newTab());
+        self::assertFalse(Link::of(new CopyLink(), new Shareable('https://example.com/a', 'Le Fuji'))->newTab(), 'copy: the page\'s own address, no tab');
     }
 
     public function testEveryNetworkByDefault(): void

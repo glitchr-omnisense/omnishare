@@ -4,8 +4,9 @@ namespace Omnishare;
 
 /**
  * One network's link for one Shareable, with all a template needs to draw it.
- * A web share page opens in a new tab (rel="noopener"); a mailto: and the
- * script's actions do not.
+ * A web share page opens in a new tab (rel="noopener") - Mastodon's without
+ * an instance too, which the script sends to the visitor's own instance; a
+ * mailto: and the script's share and copy do not (their address is the page's).
  */
 final readonly class Link
 {
@@ -24,10 +25,10 @@ final readonly class Link
         return new self($network->name(), $network->shareUrl($shareable), $network->labelKey(), $network->icon(), $network->color(), $network->action());
     }
 
-    /** True for a share page on the web, which opens in a new tab. */
+    /** True for a share page on the web, which opens in a new tab: no action, or the instance's (Mastodon's share page, wherever the script sends it). */
     public function newTab(): bool
     {
-        return null === $this->action && 1 === preg_match('~^https?://~i', $this->url);
+        return \in_array($this->action, [null, 'instance'], true) && 1 === preg_match('~^https?://~i', $this->url);
     }
 
     /** @return array{network: string, url: string, label: string, icon: string, color: ?string, newTab: bool, action: ?string} */

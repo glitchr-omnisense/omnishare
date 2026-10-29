@@ -64,14 +64,9 @@ network name in the order asked for: what a template draws.
 | `icon` | `string` | a name for the application's icon set |
 | `color` | `?string` | the brand colour, `#rrggbb`, `null` without a brand |
 | `action` | `?string` | what the script does on a click: `share`, `copy`, `instance`; `null` for a plain link |
-| `newTab(): bool` | | true when there is no action and the address is http(s): open it in a new tab, `rel="noopener"` |
+| `newTab(): bool` | | true when the address is http(s) and there is no action, or the action is `instance` (Mastodon's share page, the script's markup has `target="_blank"`): open it in a new tab, `rel="noopener"`; false for a `mailto:`, `share` and `copy` |
 | `Link::of(NetworkInterface, Shareable)` | | builds one |
 | `toArray()` | | `network`, `url`, `label`, `icon`, `color`, `newTab`, `action` |
-
-> [!NOTE]
-> Mastodon's link without a configured instance carries the action `instance`, so `newTab()` is
-> false for it, while the script's own markup example gives it `target="_blank"`. A template that
-> follows `newTab` opens it in the same tab when the script is not loaded.
 
 ## NetworkInterface and AbstractNetwork
 

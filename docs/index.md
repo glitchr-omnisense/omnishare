@@ -45,7 +45,7 @@ application adds its own by implementing `NetworkInterface` ([Installation](inst
 | `pinterest` | `omnishare.pinterest` | `pinterest` | `#e60023` | url, image, title, text | - | yes |
 | `linkedin` | `omnishare.linkedin` | `linkedin` | `#0a66c2` | url | - | yes |
 | `bluesky` | `omnishare.bluesky` | `bluesky` | `#1185fe` | url, title, text, hashtags | - | yes |
-| `mastodon` | `omnishare.mastodon` | `mastodon` | `#6364ff` | url, title, text, hashtags | `instance` when no instance is configured | yes with an instance, no without |
+| `mastodon` | `omnishare.mastodon` | `mastodon` | `#6364ff` | url, title, text, hashtags | `instance` when no instance is configured | yes |
 | `threads` | `omnishare.threads` | `threads` | `#000000` | url, title, text, hashtags | - | yes |
 | `whatsapp` | `omnishare.whatsapp` | `whatsapp` | `#25d366` | url, title, text | - | yes |
 | `telegram` | `omnishare.telegram` | `telegram` | `#26a5e4` | url, title, text | - | yes |
@@ -55,7 +55,7 @@ application adds its own by implementing `NetworkInterface` ([Installation](inst
 | `native` | `omnishare.native` | `share` | - | url, title, text | `share` | no |
 
 "Takes" is what `NetworkInterface::uses()` declares; "New tab" is `Link::newTab()`, true for a
-share page on the web with no script action. The address each one builds is in
+share page on the web with no script action or with Mastodon's `instance`. The address each one builds is in
 [The networks](networks.md#the-addresses-built), with what each network was seen to do with it.
 
 ## How this manual is organised
